@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cell Detail</title>
+    <link rel="stylesheet" th:href="@{css/dashboard.css}" type="text/css"/>
+</head>
+<body>
+<div th:replace="~{fragments/dashboard :: master}"></div>
+<div class="row">
+    <div class="col-lg-12" style="margin-left: 3.5in;">
+        <h1 th:text="${'Cell ID  '+ heading}">Dashboard</h1>
+    </div>
+</div>
+
+
+        <div style="margin-left: 3.5in;">
+            <canvas id="volVsTime"></canvas>
+        </div>
+
+        <div  style="margin-left: 3.5in;">
+            <canvas id="currVsTime"></canvas>
+        </div>
+
+
+<div style="margin-left: 3.5in;">
+    <canvas id="tempVsTime"></canvas>
+</div>
+
+<div style="margin-left: 3.5in;">
+    <canvas id="capVsTime"></canvas>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script th:inline="javascript">
+    var cap = [[${capacities}]];
+    var vol = [[${voltages}]];
+    var temp = [[${temprature}]];
+    var curr = [[${curr}]]
+    var time = [[${time}]];
+
+</script>
+<script th:src="@{js/detail-chart.js}"></script>
+</body>
+</html>

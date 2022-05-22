@@ -23,6 +23,6 @@ public interface CellDetailRepository extends PagingAndSortingRepository<CellDet
     @Query(value = "SELECT curr FROM batteries.celldetail WHERE cell_id = :id", nativeQuery = true)
     List<Double> getCurrentById(@Param("id") Long id);
 
-    @Query(value = "SELECT absolute_time FROM batteries.celldetail WHERE cell_id = :id", nativeQuery = true)
+    @Query(value = "SELECT relative_time FROM batteries.celldetail WHERE cell_id = :id", nativeQuery = true)
     List<String> getTimeById(@Param("id") Long id);
 }

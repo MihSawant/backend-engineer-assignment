@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{css/dashboard.css}" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+
+    <div th:fragment="master" id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a th:href="@{/}">Dashboard</a>
+            </li>
+            <li>
+                <p>Cell-Id</p>
+            </li>
+            <li th:each="cell, ctr : ${cells}">
+                    <a th:href="@{'/'+${ctr.count}}" th:text="${cell}"></a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
